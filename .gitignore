@@ -26,3 +26,11 @@ node_modules
 
 # Users Environment Variables
 .lock-wscript
+
+node_modules
+.tmp
+.sass-cache
+client/bower_components
+heroku
+dist
+.DS_Store
