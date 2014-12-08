@@ -1,10 +1,8 @@
 angular.module('remindMeWeatherApp').directive('validZipDirective', function(LocationService, $q){
 	// Runs during compile
-
-	var regEx = new RegExp('/^\d*\.?\d+$/'),
-	      city ='',
+	var city   = '',
 	      state = '',
-	      zip = '';
+	      zip    = '';
 
 	return {
 		// name: '',
@@ -13,9 +11,7 @@ angular.module('remindMeWeatherApp').directive('validZipDirective', function(Loc
 		scope: {
 			ngModel: '='
 		}, // {} = isolate, true = child, false/undefined = no change
-		// controller: function($scope, $http) {
-
-		// },
+		// controller: function($scope, $http) {},
 		require:  'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
 		restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
 		//template: '<p>this is the api call results: {{ngCity}}</p>',
