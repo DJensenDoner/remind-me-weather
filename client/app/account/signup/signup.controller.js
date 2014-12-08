@@ -51,7 +51,7 @@ angular.module('remindMeWeatherApp')
             deferred.resolve(data);
             console.log(data);
           });
-          return deferred.promise
+          return deferred.promise 
     };
 
     $scope.loginOauth = function(provider) {
