@@ -16,10 +16,9 @@ angular.module('remindMeWeatherApp').directive('selectedWeatherDirective', funct
 		// transclude: true,
 		// compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
 		link: function($scope, iElm, iAttrs, ngModel) {
-			console.log($scope.$parent.weather);
-			// if($scope.$parent.weather.rain == false){
-			// 	console.log("its raining!")
-			// }
+			angular.element('.test-weather').bind('click', function(){
+				console.log($scope.$parent.user);
+			});
 		}
 	};
 });

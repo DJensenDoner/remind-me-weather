@@ -4,10 +4,12 @@
 
 'use strict';
 
-var errors = require('./components/errors');
+var errors = require('./components/errors'),
+      foo =  require('./components/weather');
 
 module.exports = function(app) {
-
+  foo.hi();
+  foo.bai();
   // Insert routes below
   app.use('/api/users', require('./api/user'));
 

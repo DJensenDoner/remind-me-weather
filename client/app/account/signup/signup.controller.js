@@ -1,17 +1,14 @@
 'use strict';
 
 angular.module('remindMeWeatherApp')
-  .controller('SignupCtrl', function ($scope, Auth, $location, $window, $q, $http) {
+  .controller('SignupCtrl', function ($scope, Auth, $location, $window) {
     $scope.user = {};
     $scope.errors = {};
-    $scope.weather = {
-        rain: false,
-        wind: false,
-        tornado: false,
-        cats: false
-    };
-    var weatherApiKey = 'cbb321e69b3550d9';
-
+    $scope.conditions = [
+        { weather: "rain", checked: false },
+        { weather: "wind", checked: false },
+        { weather: "cats", checked: false }
+    ]
     $scope.register = function(form) {
       $scope.submitted = true;
 
@@ -23,7 +20,7 @@ angular.module('remindMeWeatherApp')
           state: $scope.user.state,
           email: $scope.user.email,
           password: $scope.user.password,
-          alerts: $scope.weather
+          alerts: $scope.conditions
         })
         .then( function() {
           // Account created, redirect to home
@@ -40,18 +37,6 @@ angular.module('remindMeWeatherApp')
           });
         });
       }
-    };
-
-    $scope.weatherCall = function(city, state){
-        console.log('test works!');
-        var deferred = $q.defer();
-        //http://api.wunderground.com/api/6b5d9a293efd4760/conditions/q/CA/San_Francisco.json
-                 $http.jsonp('http://api.wunderground.com/api/'+ weatherApiKey + '/conditions/q/' + state + '/' + city + '.json?callback=JSON_CALLBACK')
-          .success(function(data){
-            deferred.resolve(data);
-            console.log(data);
-          });
-          return deferred.promise 
     };
 
     $scope.loginOauth = function(provider) {
