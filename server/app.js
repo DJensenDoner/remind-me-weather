@@ -10,10 +10,9 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 var express = require('express');
 var mongoose = require('mongoose');
 var config = require('./config/environment');
-var MONGOHQ_URL = "mongodb://djensen:password01@dogen.mongohq.com:10002/where_is_my_weather"
 
 // Connect to database
-mongoose.connect(MONGOHQ_URL, config.mongo.options);
+mongoose.connect(config.mongo.options.URI, config.mongo.options);
 
 // Setup server
 var app = express();

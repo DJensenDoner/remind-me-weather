@@ -37,7 +37,8 @@ var all = {
     options: {
       db: {
         safe: true
-      }
+      },
+      URI: 'mongodb://djensen:password01@dogen.mongohq.com:10002/where_is_my_weather'
     }
   },
 
